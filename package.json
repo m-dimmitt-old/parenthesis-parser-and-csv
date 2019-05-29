@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/MichaelDimmitt/parenthesis-parser-and-csv/issues"
   },
-  "homepage": "https://github.com/MichaelDimmitt/parenthesis-parser-and-csv#readme"
+  "homepage": "https://github.com/MichaelDimmitt/parenthesis-parser-and-csv#readme",
+  "dependencies": {
+    "jest": "^24.8.0"
+  }
 }
