@@ -6,16 +6,9 @@ const parser = (inputString) => {
   let rightStack = [];
 
   const strLength = inputString.length;
-  console.log({ length: inputString.length});
 
   for( let i = 0; i < strLength; i++){
     const val = inputString[i];
-
-    // console.log(
-    //   val,
-    //   val === '\(',
-    //   val === '\)');
-
     if( val === '\(' ) {
       leftStack.push(val)
     } else if (val === '\)'){
@@ -35,16 +28,15 @@ const parser = (inputString) => {
     (compiles === true && leftStack.length === rightStack.length)
       ? true : false;
 
-  console.log({compiles})
   return compiles
 }
 
-parser(example1)
-parser(example2)
-parser(longExample)
-parser(longExample + '\(')
-parser(longExample + '\)')
-parser('\(' + longExample)
-parser('\(' + longExample)
+// parser(example1)
+// parser(example2)
+// parser(longExample)
+// parser(longExample + '\(')
+// parser(longExample + '\)')
+// parser('\(' + longExample)
+// parser('\(' + longExample)
 
 module.exports = { parser }
