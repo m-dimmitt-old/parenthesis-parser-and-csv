@@ -4,4 +4,4 @@
 ## •	Version (integer)
 ## •	Insurance Company (string)
 
-cat info.csv | tr ',' ' ' | sort -k1,1 -k2,2 | sort -u -k3,3 | tr ' ' ','
+sort -t, -k2,2 -k1,1 info.csv | sort -t, -u -k3,3
