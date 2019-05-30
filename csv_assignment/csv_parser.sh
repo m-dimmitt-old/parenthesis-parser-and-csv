@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 sortByFirstLastThenSortValueAndRemoveDups(){
   csv_filename=$1
-  sort -t, -k2,2 -k1,1 $csv_filename | sort -t, -u -k3,3
+  path=$(pwd)
+  file_path=$path/$csv_filename
+  sort -t, -r -k4,4 $file_path | sort -t, -u -k2,2 -k1,1 > $(echo $file_path)_sorted.csv
 }
 
 ## solution for small jobs
