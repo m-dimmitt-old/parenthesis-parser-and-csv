@@ -14,4 +14,4 @@ mkdir divided_by_company
 ## add to file based on company name without ""
 
 mkdir temp; cd temp; awk -F, 'gsub(/"/, "", $3);{print > $3};{close($3);}' ../100-contacts.csv; cd ..;
-
+cd temp; awk -F, 'gsub(/"/, "", $3);{print > $3}' ../info.csv; cd ..;
