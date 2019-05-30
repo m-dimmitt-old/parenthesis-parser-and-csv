@@ -1,5 +1,8 @@
-
-sort -t, -k2,2 -k1,1 100-contacts.csv | sort -t, -u -k3,3
+#!/usr/bin/env bash
+sortByFirstLastThenSortValueAndRemoveDups(){
+  csv_filename=$1
+  sort -t, -k2,2 -k1,1 $csv_filename | sort -t, -u -k3,3
+}
 
 ## solution for small jobs
 smallSolution(){
@@ -13,7 +16,8 @@ scalableSolution(){
   csv_filename=$1;
   mkdir divided_by_company;
   cd divided_by_company; awk -F, 'gsub(/"/, "", $3);{print > $3};{close($3);}' ../$csv_filename; cd ..;
-  cd divided_by_company; for f in * ; do (echo "$f" && awk "/${f}/ { print }" ../$csv_filename && cd ..;); done
+  cd divided_by_company; for f in * ; do (echo "$f" && awk "/${f}/ { print }" ../$csv_filename > $f); done && cd ..;
+  cd divided_by_company; for f in * ; do (sortByFirstLastThenSortValueAndRemoveDups $f); done && cd ..;
 }
 
 scalableSolution info.csv
