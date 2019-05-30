@@ -5,3 +5,10 @@
 ## •	Insurance Company (string)
 
 sort -t, -k2,2 -k1,1 100-contacts.csv | sort -t, -u -k3,3
+
+## plan for seperating based on company.
+mkdir divided_by_company
+
+## sort based on company
+## bash loop over each line
+## add to file based on company name without ""
