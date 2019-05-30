@@ -13,5 +13,8 @@ mkdir divided_by_company
 ## bash loop over each line
 ## add to file based on company name without ""
 
-mkdir temp; cd temp; awk -F, 'gsub(/"/, "", $3);{print > $3};{close($3);}' ../100-contacts.csv; cd ..;
 cd temp; awk -F, 'gsub(/"/, "", $3);{print > $3}' ../info.csv; cd ..;
+
+## scalable solution
+mkdir temp; cd temp; awk -F, 'gsub(/"/, "", $3);{print > $3};{close($3);}' ../100-contacts.csv; cd ..;
+for f in * ; do (echo "$f" && awk "/${f}/ { print }" ../info.csv  ); done
