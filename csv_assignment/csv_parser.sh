@@ -12,3 +12,5 @@ mkdir divided_by_company
 ## sort based on company
 ## bash loop over each line
 ## add to file based on company name without ""
+
+mkdir temp; cd temp; awk -F, '{print > $3}' ../100-contacts.csv; cd ..; ls temp/; rm -rf temp/*
